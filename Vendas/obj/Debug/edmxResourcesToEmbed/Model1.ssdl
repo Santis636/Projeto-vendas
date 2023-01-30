@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MercadinhoSeuFelipeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MercadinhoSeuFelipe.dbo.Contas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Contas">
+    <Key>
+      <PropertyRef Name="Id_Venda" />
+      <PropertyRef Name="Produto" />
+      <PropertyRef Name="Preco" />
+    </Key>
+    <Property Name="Id_Venda" Type="int" Nullable="false" />
+    <Property Name="Id_Pessoa" Type="int" />
+    <Property Name="Produto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Preco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="Id_Pessoa" />
+    </Key>
+    <Property Name="Id_Pessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome_Pessoa" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Produtos">
+    <Key>
+      <PropertyRef Name="Id_Produto" />
+    </Key>
+    <Property Name="Id_Produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Cod_Barra" Type="int" />
+    <Property Name="Preco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendas">
+    <Key>
+      <PropertyRef Name="Id_Venda" />
+    </Key>
+    <Property Name="Id_Venda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome_Produto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Preco" Type="int" Nullable="false" />
+    <Property Name="Id_Vendedor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendedor">
+    <Key>
+      <PropertyRef Name="Id_Vendedor" />
+    </Key>
+    <Property Name="Id_Vendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome_Vendedor" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Senha" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Contas__Id_Pesso__52593CB8">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="0..1" />
+    <End Role="Contas" Type="Self.Contas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id_Pessoa" />
+      </Principal>
+      <Dependent Role="Contas">
+        <PropertyRef Name="Id_Pessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contas__Id_Venda__5165187F">
+    <End Role="Vendas" Type="Self.Vendas" Multiplicity="1" />
+    <End Role="Contas" Type="Self.Contas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendas">
+        <PropertyRef Name="Id_Venda" />
+      </Principal>
+      <Dependent Role="Contas">
+        <PropertyRef Name="Id_Venda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vendas__Id_Vende__4D94879B">
+    <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1" />
+    <End Role="Vendas" Type="Self.Vendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendedor">
+        <PropertyRef Name="Id_Vendedor" />
+      </Principal>
+      <Dependent Role="Vendas">
+        <PropertyRef Name="Id_Vendedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MercadinhoSeuFelipeModelStoreContainer">
+    <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produtos" EntityType="Self.Produtos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendas" EntityType="Self.Vendas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendedor" EntityType="Self.Vendedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contas" EntityType="Self.Contas" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Contas].[Id_Venda] AS [Id_Venda], 
+    [Contas].[Id_Pessoa] AS [Id_Pessoa], 
+    [Contas].[Produto] AS [Produto], 
+    [Contas].[Preco] AS [Preco]
+    FROM [dbo].[Contas] AS [Contas]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Contas__Id_Pesso__52593CB8" Association="Self.FK__Contas__Id_Pesso__52593CB8">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Contas" EntitySet="Contas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contas__Id_Venda__5165187F" Association="Self.FK__Contas__Id_Venda__5165187F">
+      <End Role="Vendas" EntitySet="Vendas" />
+      <End Role="Contas" EntitySet="Contas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vendas__Id_Vende__4D94879B" Association="Self.FK__Vendas__Id_Vende__4D94879B">
+      <End Role="Vendedor" EntitySet="Vendedor" />
+      <End Role="Vendas" EntitySet="Vendas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

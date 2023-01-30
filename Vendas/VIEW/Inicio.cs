@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Vendas
+namespace Vendas.VIEW
 {
     public partial class Inicio : Form
     {
