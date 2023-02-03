@@ -5,16 +5,24 @@
       <PropertyRef Name="Id_Pessoa" />
     </Key>
     <Property Name="Id_Pessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nome_Pessoa" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Nome_Pessoa" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Contas" Relationship="Self.FK__Contas__Id_Pesso__52593CB8" FromRole="Pessoa" ToRole="Contas" />
   </EntityType>
-  <EntityType Name="Produtos">
+  <EntityType Name="ProdutosEstoque">
     <Key>
       <PropertyRef Name="Id_Produto" />
     </Key>
     <Property Name="Id_Produto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Cod_Barra" Type="Int32" />
+    <Property Name="Preco" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProdutosLista">
+    <Key>
+      <PropertyRef Name="Id_Produto" />
+    </Key>
+    <Property Name="Id_Produto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Preco" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Vendas">
@@ -86,9 +94,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="MercadinhoSeuFelipeEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="MercadinhoSeuFelipeEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Pessoa" EntityType="Self.Pessoa" />
-    <EntitySet Name="Produtos" EntityType="Self.Produtos" />
+    <EntitySet Name="ProdutosEstoque" EntityType="Self.ProdutosEstoque" />
+    <EntitySet Name="ProdutosLista" EntityType="Self.ProdutosLista" />
     <EntitySet Name="Vendas" EntityType="Self.Vendas" />
     <EntitySet Name="Vendedor" EntityType="Self.Vendedor" />
     <EntitySet Name="Contas" EntityType="Self.Contas" />

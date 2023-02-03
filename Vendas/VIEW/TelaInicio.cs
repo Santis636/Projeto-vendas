@@ -89,10 +89,14 @@ namespace Vendas.VIEW
         {
             AbrirFormulario(new Inicio());
         }
+        private void Btn_CadCliente_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new CadCliente());
+        }
 
 
         #endregion
 
-        
+
     }
 }

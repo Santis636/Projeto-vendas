@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Vendas",
-    "\\Vendas\\VIEW"
+    ""
   ],
-  "SelectedNode": "\\Vendas\\VIEW\\Inicio.cs",
+  "SelectedNode": "\\Vendas.sln",
   "PreviewInSolutionExplorer": false
 }

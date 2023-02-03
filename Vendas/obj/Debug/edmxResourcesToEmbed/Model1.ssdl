@@ -18,15 +18,23 @@ warning 6002: The table/view 'MercadinhoSeuFelipe.dbo.Contas' does not have a pr
       <PropertyRef Name="Id_Pessoa" />
     </Key>
     <Property Name="Id_Pessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome_Pessoa" Type="varchar" MaxLength="1" />
+    <Property Name="Nome_Pessoa" Type="varchar" MaxLength="80" Nullable="false" />
   </EntityType>
-  <EntityType Name="Produtos">
+  <EntityType Name="ProdutosEstoque">
     <Key>
       <PropertyRef Name="Id_Produto" />
     </Key>
     <Property Name="Id_Produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
     <Property Name="Cod_Barra" Type="int" />
+    <Property Name="Preco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProdutosLista">
+    <Key>
+      <PropertyRef Name="Id_Produto" />
+    </Key>
+    <Property Name="Id_Produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
     <Property Name="Preco" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Vendas">
@@ -84,7 +92,8 @@ warning 6002: The table/view 'MercadinhoSeuFelipe.dbo.Contas' does not have a pr
   </Association>
   <EntityContainer Name="MercadinhoSeuFelipeModelStoreContainer">
     <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Produtos" EntityType="Self.Produtos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProdutosEstoque" EntityType="Self.ProdutosEstoque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProdutosLista" EntityType="Self.ProdutosLista" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vendas" EntityType="Self.Vendas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vendedor" EntityType="Self.Vendedor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contas" EntityType="Self.Contas" store:Type="Tables" store:Schema="dbo">

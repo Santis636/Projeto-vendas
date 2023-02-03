@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Btn_ExcluirProd = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label = new System.Windows.Forms.Label();
             this.Tb_Quantidade = new System.Windows.Forms.TextBox();
@@ -39,14 +41,15 @@
             this.Tb_Preco = new System.Windows.Forms.TextBox();
             this.Tb_Nome = new System.Windows.Forms.TextBox();
             this.Btn_AdicionarProd = new System.Windows.Forms.Button();
+            this.Btn_AtualizarrProd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Btn_ExcluirProd = new System.Windows.Forms.Button();
-            this.Btn_AlterarProd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Dg_ProdutosCad = new System.Windows.Forms.DataGridView();
+            this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg_ProdutosCad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,7 +57,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(140)))));
             this.panel1.Controls.Add(this.Btn_ExcluirProd);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.Btn_AlterarProd);
+            this.panel1.Controls.Add(this.Btn_AtualizarrProd);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -63,8 +66,23 @@
             this.panel1.Size = new System.Drawing.Size(1214, 770);
             this.panel1.TabIndex = 0;
             // 
+            // Btn_ExcluirProd
+            // 
+            this.Btn_ExcluirProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Btn_ExcluirProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_ExcluirProd.FlatAppearance.BorderSize = 6;
+            this.Btn_ExcluirProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ExcluirProd.Location = new System.Drawing.Point(948, 711);
+            this.Btn_ExcluirProd.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_ExcluirProd.Name = "Btn_ExcluirProd";
+            this.Btn_ExcluirProd.Size = new System.Drawing.Size(107, 32);
+            this.Btn_ExcluirProd.TabIndex = 1;
+            this.Btn_ExcluirProd.Text = "Excluir";
+            this.Btn_ExcluirProd.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.label);
             this.groupBox2.Controls.Add(this.Tb_Quantidade);
             this.groupBox2.Controls.Add(this.label3);
@@ -87,6 +105,7 @@
             // 
             // label
             // 
+            this.label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label.AutoSize = true;
             this.label.Location = new System.Drawing.Point(51, 288);
             this.label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -97,6 +116,7 @@
             // 
             // Tb_Quantidade
             // 
+            this.Tb_Quantidade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Tb_Quantidade.Location = new System.Drawing.Point(51, 316);
             this.Tb_Quantidade.Margin = new System.Windows.Forms.Padding(4);
             this.Tb_Quantidade.Name = "Tb_Quantidade";
@@ -105,6 +125,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(51, 213);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -115,6 +136,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(51, 127);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -125,6 +147,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(51, 53);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -135,6 +158,7 @@
             // 
             // Tb_CodBarra
             // 
+            this.Tb_CodBarra.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Tb_CodBarra.Location = new System.Drawing.Point(51, 241);
             this.Tb_CodBarra.Margin = new System.Windows.Forms.Padding(4);
             this.Tb_CodBarra.Name = "Tb_CodBarra";
@@ -143,6 +167,7 @@
             // 
             // Tb_Preco
             // 
+            this.Tb_Preco.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Tb_Preco.Location = new System.Drawing.Point(51, 155);
             this.Tb_Preco.Margin = new System.Windows.Forms.Padding(4);
             this.Tb_Preco.Name = "Tb_Preco";
@@ -151,7 +176,8 @@
             // 
             // Tb_Nome
             // 
-            this.Tb_Nome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Tb_Nome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Tb_Nome.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Tb_Nome.Location = new System.Drawing.Point(51, 81);
             this.Tb_Nome.Margin = new System.Windows.Forms.Padding(4);
             this.Tb_Nome.Name = "Tb_Nome";
@@ -160,6 +186,8 @@
             // 
             // Btn_AdicionarProd
             // 
+            this.Btn_AdicionarProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Btn_AdicionarProd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_AdicionarProd.FlatAppearance.BorderSize = 6;
             this.Btn_AdicionarProd.Location = new System.Drawing.Point(155, 370);
             this.Btn_AdicionarProd.Margin = new System.Windows.Forms.Padding(4);
@@ -170,52 +198,49 @@
             this.Btn_AdicionarProd.UseVisualStyleBackColor = true;
             this.Btn_AdicionarProd.Click += new System.EventHandler(this.Btn_AdicionarProd_Click);
             // 
+            // Btn_AtualizarrProd
+            // 
+            this.Btn_AtualizarrProd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Btn_AtualizarrProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_AtualizarrProd.FlatAppearance.BorderSize = 6;
+            this.Btn_AtualizarrProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_AtualizarrProd.Location = new System.Drawing.Point(714, 711);
+            this.Btn_AtualizarrProd.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_AtualizarrProd.Name = "Btn_AtualizarrProd";
+            this.Btn_AtualizarrProd.Size = new System.Drawing.Size(125, 32);
+            this.Btn_AtualizarrProd.TabIndex = 0;
+            this.Btn_AtualizarrProd.Text = "Atualizar";
+            this.Btn_AtualizarrProd.UseVisualStyleBackColor = true;
+            this.Btn_AtualizarrProd.Click += new System.EventHandler(this.Btn_AtualizarrProd_Click);
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(675, 135);
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.Dg_ProdutosCad);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(585, 135);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(457, 555);
+            this.groupBox1.Size = new System.Drawing.Size(600, 555);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Produtos Cadastrados";
             this.groupBox1.UseCompatibleTextRendering = true;
             // 
-            // Btn_ExcluirProd
+            // Dg_ProdutosCad
             // 
-            this.Btn_ExcluirProd.FlatAppearance.BorderSize = 6;
-            this.Btn_ExcluirProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ExcluirProd.Location = new System.Drawing.Point(948, 711);
-            this.Btn_ExcluirProd.Margin = new System.Windows.Forms.Padding(4);
-            this.Btn_ExcluirProd.Name = "Btn_ExcluirProd";
-            this.Btn_ExcluirProd.Size = new System.Drawing.Size(107, 32);
-            this.Btn_ExcluirProd.TabIndex = 1;
-            this.Btn_ExcluirProd.Text = "Excluir";
-            this.Btn_ExcluirProd.UseVisualStyleBackColor = true;
+            this.Dg_ProdutosCad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dg_ProdutosCad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Dg_ProdutosCad.Location = new System.Drawing.Point(4, 23);
+            this.Dg_ProdutosCad.Name = "Dg_ProdutosCad";
+            this.Dg_ProdutosCad.RowHeadersWidth = 51;
+            this.Dg_ProdutosCad.Size = new System.Drawing.Size(592, 528);
+            this.Dg_ProdutosCad.TabIndex = 0;
             // 
-            // Btn_AlterarProd
+            // produtosBindingSource
             // 
-            this.Btn_AlterarProd.FlatAppearance.BorderSize = 6;
-            this.Btn_AlterarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_AlterarProd.Location = new System.Drawing.Point(714, 711);
-            this.Btn_AlterarProd.Margin = new System.Windows.Forms.Padding(4);
-            this.Btn_AlterarProd.Name = "Btn_AlterarProd";
-            this.Btn_AlterarProd.Size = new System.Drawing.Size(107, 32);
-            this.Btn_AlterarProd.TabIndex = 0;
-            this.Btn_AlterarProd.Text = "Alterar";
-            this.Btn_AlterarProd.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 42);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.produtosBindingSource.DataMember = "Produtos";
             // 
             // CadProdutos
             // 
@@ -227,11 +252,13 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CadProdutos";
             this.Text = "CadProdutos";
+            this.Load += new System.EventHandler(this.CadProdutos_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg_ProdutosCad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,10 +275,11 @@
         private System.Windows.Forms.Button Btn_AdicionarProd;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Btn_ExcluirProd;
-        private System.Windows.Forms.Button Btn_AlterarProd;
+        private System.Windows.Forms.Button Btn_AtualizarrProd;
         private System.Windows.Forms.TextBox Tb_Nome;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox Tb_Quantidade;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Dg_ProdutosCad;
+        private System.Windows.Forms.BindingSource produtosBindingSource;
     }
 }

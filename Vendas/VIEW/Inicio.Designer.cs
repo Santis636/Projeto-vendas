@@ -48,10 +48,11 @@
             // 
             this.Btn_Remover.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_Remover.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Remover.Location = new System.Drawing.Point(749, 657);
             this.Btn_Remover.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Remover.Name = "Btn_Remover";
-            this.Btn_Remover.Size = new System.Drawing.Size(85, 47);
+            this.Btn_Remover.Size = new System.Drawing.Size(114, 47);
             this.Btn_Remover.TabIndex = 20;
             this.Btn_Remover.Text = "Remover";
             this.Btn_Remover.UseVisualStyleBackColor = true;
@@ -71,10 +72,11 @@
             // 
             this.Btn_Finalizar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_Finalizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Finalizar.Location = new System.Drawing.Point(966, 657);
             this.Btn_Finalizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Finalizar.Name = "Btn_Finalizar";
-            this.Btn_Finalizar.Size = new System.Drawing.Size(84, 47);
+            this.Btn_Finalizar.Size = new System.Drawing.Size(118, 47);
             this.Btn_Finalizar.TabIndex = 18;
             this.Btn_Finalizar.Text = "Finalizar";
             this.Btn_Finalizar.UseVisualStyleBackColor = true;
@@ -87,13 +89,14 @@
             this.Btn_Adicionar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(2)))));
             this.Btn_Adicionar.FlatAppearance.BorderSize = 5;
             this.Btn_Adicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Adicionar.Location = new System.Drawing.Point(189, 528);
+            this.Btn_Adicionar.Location = new System.Drawing.Point(189, 511);
             this.Btn_Adicionar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Adicionar.Name = "Btn_Adicionar";
             this.Btn_Adicionar.Size = new System.Drawing.Size(121, 32);
             this.Btn_Adicionar.TabIndex = 17;
             this.Btn_Adicionar.Text = "ADICIONAR";
             this.Btn_Adicionar.UseVisualStyleBackColor = false;
+            this.Btn_Adicionar.Click += new System.EventHandler(this.Btn_Adicionar_Click);
             // 
             // label3
             // 
@@ -133,6 +136,7 @@
             // Tb_Preco
             // 
             this.Tb_Preco.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Tb_Preco.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Tb_Preco.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tb_Preco.Location = new System.Drawing.Point(125, 304);
             this.Tb_Preco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -143,6 +147,7 @@
             // Tb_Quantidade
             // 
             this.Tb_Quantidade.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Tb_Quantidade.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Tb_Quantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tb_Quantidade.Location = new System.Drawing.Point(124, 438);
             this.Tb_Quantidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -165,6 +170,7 @@
             // Cb_Nome
             // 
             this.Cb_Nome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Cb_Nome.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Cb_Nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cb_Nome.FormattingEnabled = true;
             this.Cb_Nome.Location = new System.Drawing.Point(127, 170);
@@ -172,6 +178,8 @@
             this.Cb_Nome.Name = "Cb_Nome";
             this.Cb_Nome.Size = new System.Drawing.Size(260, 37);
             this.Cb_Nome.TabIndex = 22;
+            this.Cb_Nome.Enter += new System.EventHandler(this.Cb_Nome_Enter);
+            this.Cb_Nome.Leave += new System.EventHandler(this.Cb_Nome_Leave);
             // 
             // panel1
             // 

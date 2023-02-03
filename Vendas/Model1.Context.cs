@@ -13,10 +13,10 @@ namespace Vendas
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MercadinhoSeuFelipeEntities : DbContext
+    public partial class MercadinhoSeuFelipeEntities1 : DbContext
     {
-        public MercadinhoSeuFelipeEntities()
-            : base("name=MercadinhoSeuFelipeEntities")
+        public MercadinhoSeuFelipeEntities1()
+            : base("name=MercadinhoSeuFelipeEntities1")
         {
         }
     
@@ -26,7 +26,8 @@ namespace Vendas
         }
     
         public virtual DbSet<Pessoa> Pessoa { get; set; }
-        public virtual DbSet<Produtos> Produtos { get; set; }
+        public virtual DbSet<ProdutosEstoque> ProdutosEstoque { get; set; }
+        public virtual DbSet<ProdutosLista> ProdutosLista { get; set; }
         public virtual DbSet<Vendas> Vendas { get; set; }
         public virtual DbSet<Vendedor> Vendedor { get; set; }
         public virtual DbSet<Contas> Contas { get; set; }

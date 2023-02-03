@@ -12,7 +12,7 @@ namespace Vendas
     using System;
     using System.Collections.Generic;
     
-    public partial class Produtos
+    public partial class ProdutosEstoque
     {
         public int Id_Produto { get; set; }
         public string Nome { get; set; }

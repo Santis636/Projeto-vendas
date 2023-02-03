@@ -8,5 +8,12 @@ namespace Vendas.DAO
 {
     public class VendaDiariaDAO : Vendas
     {
+        public List<VendaDiariaDAO> vendaDiarias(Vendas entityVendas)
+        {
+            var itemlista = new List<VendaDiariaDAO>();
+
+            itemlista.Add((VendaDiariaDAO)entityVendas);
+            return itemlista;
+        }
     }
 }
