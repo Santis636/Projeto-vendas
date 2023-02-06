@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MercadinhoSeuFelipeModelStoreContainer" CdmEntityContainer="MercadinhoSeuFelipeEntities1">
+    <EntitySetMapping Name="Pessoa">
+      <EntityTypeMapping TypeName="IsTypeOf(MercadinhoSeuFelipeModel.Pessoa)">
+        <MappingFragment StoreEntitySet="Pessoa">
+          <ScalarProperty Name="Id_Pessoa" ColumnName="Id_Pessoa" />
+          <ScalarProperty Name="Nome_Pessoa" ColumnName="Nome_Pessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProdutosEstoque">
+      <EntityTypeMapping TypeName="IsTypeOf(MercadinhoSeuFelipeModel.ProdutosEstoque)">
+        <MappingFragment StoreEntitySet="ProdutosEstoque">
+          <ScalarProperty Name="Id_Produto" ColumnName="Id_Produto" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Cod_Barra" ColumnName="Cod_Barra" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProdutosLista">
+      <EntityTypeMapping TypeName="IsTypeOf(MercadinhoSeuFelipeModel.ProdutosLista)">
+        <MappingFragment StoreEntitySet="ProdutosLista">
+          <ScalarProperty Name="Id_Produto" ColumnName="Id_Produto" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendas">
+      <EntityTypeMapping TypeName="IsTypeOf(MercadinhoSeuFelipeModel.Vendas)">
+        <MappingFragment StoreEntitySet="Vendas">
+          <ScalarProperty Name="Id_Venda" ColumnName="Id_Venda" />
+          <ScalarProperty Name="Nome_Produto" ColumnName="Nome_Produto" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="Id_Vendedor" ColumnName="Id_Vendedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendedor">
+      <EntityTypeMapping TypeName="IsTypeOf(MercadinhoSeuFelipeModel.Vendedor)">
+        <MappingFragment StoreEntitySet="Vendedor">
+          <ScalarProperty Name="Id_Vendedor" ColumnName="Id_Vendedor" />
+          <ScalarProperty Name="Nome_Vendedor" ColumnName="Nome_Vendedor" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contas">
+      <EntityTypeMapping TypeName="IsTypeOf(MercadinhoSeuFelipeModel.Contas)">
+        <MappingFragment StoreEntitySet="Contas">
+          <ScalarProperty Name="Id_Venda" ColumnName="Id_Venda" />
+          <ScalarProperty Name="Produto" ColumnName="Produto" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="Id_Pessoa" ColumnName="Id_Pessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MercadinhoSeuFelipeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MercadinhoSeuFelipeModelStoreContainer">
+    <EntitySet Name="Pessoa" EntityType="MercadinhoSeuFelipeModel.Store.Pessoa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProdutosEstoque" EntityType="MercadinhoSeuFelipeModel.Store.ProdutosEstoque" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProdutosLista" EntityType="MercadinhoSeuFelipeModel.Store.ProdutosLista" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vendas" EntityType="MercadinhoSeuFelipeModel.Store.Vendas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vendedor" EntityType="MercadinhoSeuFelipeModel.Store.Vendedor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contas" EntityType="MercadinhoSeuFelipeModel.Store.Contas" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Contas__Id_Pesso__52593CB8" Association="MercadinhoSeuFelipeModel.Store.FK__Contas__Id_Pesso__52593CB8">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Contas" EntitySet="Contas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contas__Id_Venda__5165187F" Association="MercadinhoSeuFelipeModel.Store.FK__Contas__Id_Venda__5165187F">
+      <End Role="Vendas" EntitySet="Vendas" />
+      <End Role="Contas" EntitySet="Contas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vendas__Id_Vende__4D94879B" Association="MercadinhoSeuFelipeModel.Store.FK__Vendas__Id_Vende__4D94879B">
+      <End Role="Vendedor" EntitySet="Vendedor" />
+      <End Role="Vendas" EntitySet="Vendas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="Id_Pessoa" />
+    </Key>
+    <Property Name="Id_Pessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome_Pessoa" Type="varchar" Nullable="false" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="ProdutosEstoque">
+    <Key>
+      <PropertyRef Name="Id_Produto" />
+    </Key>
+    <Property Name="Id_Produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="Cod_Barra" Type="int" Nullable="true" />
+    <Property Name="Preco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProdutosLista">
+    <Key>
+      <PropertyRef Name="Id_Produto" />
+    </Key>
+    <Property Name="Id_Produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="Preco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendas">
+    <Key>
+      <PropertyRef Name="Id_Venda" />
+    </Key>
+    <Property Name="Id_Venda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome_Produto" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Preco" Type="int" Nullable="false" />
+    <Property Name="Id_Vendedor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendedor">
+    <Key>
+      <PropertyRef Name="Id_Vendedor" />
+    </Key>
+    <Property Name="Id_Vendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome_Vendedor" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="Senha" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contas">
+    <Key>
+      <PropertyRef Name="Id_Venda" />
+      <PropertyRef Name="Produto" />
+      <PropertyRef Name="Preco" />
+    </Key>
+    <Property Name="Id_Venda" Type="int" Nullable="false" />
+    <Property Name="Id_Pessoa" Type="int" Nullable="true" />
+    <Property Name="Produto" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Preco" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Contas__Id_Pesso__52593CB8">
+    <End Role="Pessoa" Type="MercadinhoSeuFelipeModel.Store.Pessoa" Multiplicity="0..1" />
+    <End Role="Contas" Type="MercadinhoSeuFelipeModel.Store.Contas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id_Pessoa" />
+      </Principal>
+      <Dependent Role="Contas">
+        <PropertyRef Name="Id_Pessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contas__Id_Venda__5165187F">
+    <End Role="Vendas" Type="MercadinhoSeuFelipeModel.Store.Vendas" Multiplicity="1" />
+    <End Role="Contas" Type="MercadinhoSeuFelipeModel.Store.Contas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendas">
+        <PropertyRef Name="Id_Venda" />
+      </Principal>
+      <Dependent Role="Contas">
+        <PropertyRef Name="Id_Venda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vendas__Id_Vende__4D94879B">
+    <End Role="Vendedor" Type="MercadinhoSeuFelipeModel.Store.Vendedor" Multiplicity="1" />
+    <End Role="Vendas" Type="MercadinhoSeuFelipeModel.Store.Vendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendedor">
+        <PropertyRef Name="Id_Vendedor" />
+      </Principal>
+      <Dependent Role="Vendas">
+        <PropertyRef Name="Id_Vendedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

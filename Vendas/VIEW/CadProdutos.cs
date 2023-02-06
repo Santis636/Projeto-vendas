@@ -20,7 +20,7 @@ namespace Vendas.VIEW
         }
         #region "OBJETOS"
         ProdutoEstoqueDAO ProdutoEstoqueDAO = new ProdutoEstoqueDAO();
-        BuscarProduto ProdutoListaDAO = new ProdutoListaDAO();
+        ProdutoListaDAO ProdutoListaDAO = new ProdutoListaDAO();
         #endregion
 
         private void Btn_AdicionarProd_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Vendas.VIEW
                 MessageBox.Show($"Falha: {ex.Message}");
             }
 
-            Dg_ProdutosCad.DataSource = BuscarProduto.GetProdutoLista();
+            Dg_ProdutosCad.DataSource = ProdutoListaDAO.GetProdutoLista();
 
             Tb_Nome.Clear();
             Tb_Preco.Clear();
@@ -55,7 +55,7 @@ namespace Vendas.VIEW
 
         private void Btn_AtualizarrProd_Click(object sender, EventArgs e)
         {
-            Dg_ProdutosCad.DataSource = BuscarProduto.GetProdutoLista();
+            Dg_ProdutosCad.DataSource = ProdutoListaDAO.GetProdutoLista();
         }
 
         private void CadProdutos_Load(object sender, EventArgs e)

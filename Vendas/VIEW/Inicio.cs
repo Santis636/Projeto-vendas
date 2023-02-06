@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vendas.DAO;
 
@@ -18,23 +11,52 @@ namespace Vendas.VIEW
             InitializeComponent();
         }
         #region "Objetos"
-        VendaDiariaDAO vendaDAO = new VendaDiariaDAO();
-        BuscarProduto produtoDAO = new ProdutoListaDAO();
+        VendaDiariaDAO VendaDAO = new VendaDiariaDAO();
+        ProdutoListaDAO produtoDAO = new ProdutoListaDAO();
         #endregion
         private void Btn_Adicionar_Click(object sender, EventArgs e)
         {
             var entityVendas = new Vendas();
-            int QuantidadoDoItem = Convert.ToInt32(Tb_Quantidade);
             entityVendas.Nome_Produto = Cb_Nome.Text;
-            entityVendas.Preco = Convert.ToInt32(Tb_Quantidade.Text);
-            vendaDAO.vendaDiarias(entityVendas);
+            entityVendas.Preco = Convert.ToInt32(Tb_Preco.Text);
+
+            int quantidadeDoItem;
+            if (Tb_Quantidade.Text != "")
+            {
+                quantidadeDoItem = Convert.ToInt32(Tb_Quantidade.Text);
+                if (quantidadeDoItem >= 1)
+                {
+                    var vendaDAO = new VendaDiariaDAO();
+                    var vendas = vendaDAO.vendaDiarias(entityVendas, quantidadeDoItem);
+                    foreach (var venda in vendas)
+                    {
+                        Lb_Vendas.Items.Add(venda.Nome_Produto + " - " + venda.Preco + " - " + quantidadeDoItem + " unidades");
+                        // Adiciona o nome do produto, preço e quantidade na lista
+                    }
+                }
+            }
+            else
+            {
+                quantidadeDoItem = 1;
+                var vendaDAO = new VendaDiariaDAO();
+                var vendas = vendaDAO.vendaDiarias(entityVendas, quantidadeDoItem);
+                foreach (var venda in vendas)
+                {
+                    Lb_Vendas.Items.Add(venda.Nome_Produto + " - " + venda.Preco + " - " + quantidadeDoItem + " unidade");
+                    // Adiciona o nome do produto, preço e quantidade na lista
+                }
+            }
+
+            Tb_Preco.Clear();
+            Tb_Quantidade.Clear();
         }
+
 
         private void Cb_Nome_Leave(object sender, EventArgs e)
         {
             var nome = Cb_Nome.Text;
-            produtoDAO.BuscarProdutos(nome);
-            var produto = produtoDAO.BuscarProdutos(nome);
+            produtoDAO.ProdutoListaDAOs(nome);
+            var produto = produtoDAO.ProdutoListaDAOs(nome);
 
 
             Tb_Preco.Text = produto.Preco.ToString();
@@ -42,7 +64,7 @@ namespace Vendas.VIEW
 
         private void Cb_Nome_Enter(object sender, EventArgs e)
         {
-            Cb_Nome.DataSource = produtoDAO.CbProtuto();
+            Cb_Nome.DataSource = produtoDAO.CbProduto();
         }
     }
 }

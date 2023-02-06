@@ -8,7 +8,7 @@ using Vendas.DAO;
 
 namespace Vendas
 {
-    internal class BuscarProduto : ProdutosLista
+    internal class ProdutoListaDAO : ProdutosLista
     {
         public void AdicionarProdLista(ProdutosLista entityprod)
         {
@@ -21,18 +21,14 @@ namespace Vendas
                     dbContext.SaveChanges();
 
                 }
-                else
-                {
-
-                }
             }
         }
-        public static List<BuscarProduto> GetProdutoLista()
+        public static List<ProdutoListaDAO> GetProdutoLista()
         {
             using (var dbContext = new MercadinhoSeuFelipeEntities1())
             {
                 var produtos = dbContext.ProdutosLista.ToList();
-                var listProduto = new List<BuscarProduto>();
+                var listProduto = new List<ProdutoListaDAO>();
 
                 foreach (var item in produtos)
                 {
@@ -41,7 +37,7 @@ namespace Vendas
                 return listProduto;
             }
         }
-        public List<String> CbProtuto()
+        public List<String> CbProduto()
         {
             var listcb = new List<String>();
             using (var dbContext = new MercadinhoSeuFelipeEntities1())
@@ -55,7 +51,7 @@ namespace Vendas
             }
             return listcb;
         }
-        public ProdutosEstoque BuscarProdutos(String nome)
+        public ProdutosEstoque ProdutoListaDAOs(String nome)
         {
             using (var dbContext = new MercadinhoSeuFelipeEntities1())
             {

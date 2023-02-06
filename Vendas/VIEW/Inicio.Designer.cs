@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Btn_Remover = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.Lb_Vendas = new System.Windows.Forms.ListBox();
             this.Btn_Finalizar = new System.Windows.Forms.Button();
             this.Btn_Adicionar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,16 +57,16 @@
             this.Btn_Remover.Text = "Remover";
             this.Btn_Remover.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // Lb_Vendas
             // 
-            this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(652, 68);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(516, 564);
-            this.listBox1.TabIndex = 19;
+            this.Lb_Vendas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Lb_Vendas.FormattingEnabled = true;
+            this.Lb_Vendas.ItemHeight = 16;
+            this.Lb_Vendas.Location = new System.Drawing.Point(652, 68);
+            this.Lb_Vendas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Lb_Vendas.Name = "Lb_Vendas";
+            this.Lb_Vendas.Size = new System.Drawing.Size(516, 564);
+            this.Lb_Vendas.TabIndex = 19;
             // 
             // Btn_Finalizar
             // 
@@ -188,7 +188,7 @@
             this.panel1.Controls.Add(this.Cb_Nome);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.Tb_Quantidade);
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.Lb_Vendas);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Tb_Preco);
             this.panel1.Controls.Add(this.label4);
@@ -233,7 +233,7 @@
         #endregion
 
         private System.Windows.Forms.Button Btn_Remover;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox Lb_Vendas;
         private System.Windows.Forms.Button Btn_Finalizar;
         private System.Windows.Forms.Button Btn_Adicionar;
         private System.Windows.Forms.Label label3;
