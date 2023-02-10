@@ -22,5 +22,9 @@ namespace Vendas.DAO
             
             return itemlista;
         }
+        public void FinalizarVenda(List<Venda>, quantidade )
+        {
+
+        }
     }
 }

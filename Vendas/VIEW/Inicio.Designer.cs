@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.Btn_Remover = new System.Windows.Forms.Button();
-            this.Lb_Vendas = new System.Windows.Forms.ListBox();
             this.Btn_Finalizar = new System.Windows.Forms.Button();
             this.Btn_Adicionar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,8 +39,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Cb_Nome = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Dg_ListadeVendas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg_ListadeVendas)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Remover
@@ -56,17 +57,6 @@
             this.Btn_Remover.TabIndex = 20;
             this.Btn_Remover.Text = "Remover";
             this.Btn_Remover.UseVisualStyleBackColor = true;
-            // 
-            // Lb_Vendas
-            // 
-            this.Lb_Vendas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Lb_Vendas.FormattingEnabled = true;
-            this.Lb_Vendas.ItemHeight = 16;
-            this.Lb_Vendas.Location = new System.Drawing.Point(652, 68);
-            this.Lb_Vendas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Lb_Vendas.Name = "Lb_Vendas";
-            this.Lb_Vendas.Size = new System.Drawing.Size(516, 564);
-            this.Lb_Vendas.TabIndex = 19;
             // 
             // Btn_Finalizar
             // 
@@ -184,11 +174,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(140)))));
+            this.panel1.Controls.Add(this.Dg_ListadeVendas);
             this.panel1.Controls.Add(this.Btn_Adicionar);
             this.panel1.Controls.Add(this.Cb_Nome);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.Tb_Quantidade);
-            this.panel1.Controls.Add(this.Lb_Vendas);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Tb_Preco);
             this.panel1.Controls.Add(this.label4);
@@ -201,6 +191,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1214, 770);
             this.panel1.TabIndex = 23;
+            // 
+            // Dg_ListadeVendas
+            // 
+            this.Dg_ListadeVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dg_ListadeVendas.Location = new System.Drawing.Point(627, 92);
+            this.Dg_ListadeVendas.Name = "Dg_ListadeVendas";
+            this.Dg_ListadeVendas.RowHeadersWidth = 51;
+            this.Dg_ListadeVendas.RowTemplate.Height = 24;
+            this.Dg_ListadeVendas.Size = new System.Drawing.Size(541, 555);
+            this.Dg_ListadeVendas.TabIndex = 24;
             // 
             // groupBox1
             // 
@@ -223,8 +223,10 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inicio";
             this.Text = "Incio";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg_ListadeVendas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,7 +235,6 @@
         #endregion
 
         private System.Windows.Forms.Button Btn_Remover;
-        private System.Windows.Forms.ListBox Lb_Vendas;
         private System.Windows.Forms.Button Btn_Finalizar;
         private System.Windows.Forms.Button Btn_Adicionar;
         private System.Windows.Forms.Label label3;
@@ -245,5 +246,6 @@
         private System.Windows.Forms.ComboBox Cb_Nome;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView Dg_ListadeVendas;
     }
 }
