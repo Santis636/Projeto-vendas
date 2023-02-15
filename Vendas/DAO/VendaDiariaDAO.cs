@@ -22,9 +22,17 @@ namespace Vendas.DAO
             
             return itemlista;
         }
-        public void FinalizarVenda(List<Venda>, quantidade )
+        public void FinalizarVenda(Vendas vendas, int quantidade)
         {
-
+            using (var dbContex = new MercadinhoSeuFelipeEntities1())
+            {
+                for (int i = 0; i < quantidade; i++)
+                {
+                    dbContex.Vendas.Add(vendas);
+                    dbContex.SaveChanges();
+                    // colocar o id do vendedor 
+                }
+            }
         }
     }
 }

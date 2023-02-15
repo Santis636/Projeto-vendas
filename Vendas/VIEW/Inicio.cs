@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Vendas.DAO;
@@ -19,17 +20,16 @@ namespace Vendas.VIEW
         {
             if (Tb_Preco.Text != "")
             {
+                
                 var entityVendas = new Vendas();
-
                 entityVendas.Nome_Produto = Cb_Nome.Text;
                 entityVendas.Preco = Convert.ToInt32(Tb_Preco.Text);
                 int quantidadeDoItem;
-                if (Dg_ListadeVendas.Rows.Count > 0)
-                {
+                
+                
                     if (Tb_Quantidade.Text != "")
                     {
                         quantidadeDoItem = Convert.ToInt32(Tb_Quantidade.Text);
-                        var vendas = vendaDAO.vendaDiarias(entityVendas, quantidadeDoItem);
 
                         if (quantidadeDoItem >= 1)
                         {
@@ -49,8 +49,11 @@ namespace Vendas.VIEW
 
                             if (!itemExisteNaLista)
                             {
+                                var vendas = vendaDAO.vendaDiarias(entityVendas, quantidadeDoItem);
+
                                 try
                                 {
+                                    //colocar var vendas aqui
                                     foreach (var venda in vendas)
                                     {
                                         Dg_ListadeVendas.Rows.Add(venda.Nome_Produto, venda.Preco, quantidadeDoItem);
@@ -79,8 +82,7 @@ namespace Vendas.VIEW
                             if (row.Cells["Nome_Produto"].Value != null && row.Cells["Nome_Produto"].Value.ToString() == entityVendas.Nome_Produto)
                             {
                                 itemExisteNaLista = true;
-                                MessageBox.Show("Ponha uma quantidade valida");
-
+                                MessageBox.Show("Por favor utilize uma quantidade valida");
                                 break;
                             }
                         }
@@ -102,27 +104,25 @@ namespace Vendas.VIEW
                             }
                         }
                     }
-                }
-                else
-                {
-                    quantidadeDoItem = 1;
-                    var vendas = vendaDAO.vendaDiarias(entityVendas, quantidadeDoItem);
-                    foreach (var venda in vendas)
-                    {
-                        Dg_ListadeVendas.Rows.Add(venda.Nome_Produto, venda.Preco, quantidadeDoItem);
-                    }
-                }
+                
+                
             }
             else
             {
                 MessageBox.Show("Por favor selecione o produto e seu preço antes de adiona-lo novamente a lista.");
                 Cb_Nome.Focus();
             }
-            
-            
 
             Tb_Preco.Clear();
             Tb_Quantidade.Clear();
+            int sum = 0;
+            foreach (DataGridViewRow row in Dg_ListadeVendas.Rows)
+            {
+                int value = Convert.ToInt32(row.Cells["Preco"].Value);
+                int quantidade = Convert.ToInt32(row.Cells["Quantidade"].Value);
+                sum += value * quantidade;
+            }
+            Lb_Total.Text = (sum / 100.0).ToString("C");
         }
 
 
@@ -146,7 +146,23 @@ namespace Vendas.VIEW
         {
             Dg_ListadeVendas.Columns.Add("Nome_Produto", "Nome do Produto");
             Dg_ListadeVendas.Columns.Add("Preco", "Preço");
-            Dg_ListadeVendas.Columns.Add("quantidade", "Quantidade");
+            Dg_ListadeVendas.Columns.Add("Quantidade", "Quantidade");
+        }
+
+        private void Btn_Finalizar_Click(object sender, EventArgs e)
+        {
+
+            foreach (DataGridViewRow row in Dg_ListadeVendas.Rows)
+            {
+                if (row.Cells["Nome_Produto"].Value != null)
+                {
+                    Vendas vendas = new Vendas();
+                    vendas.Nome_Produto = row.Cells["Nome_Produto"].Value.ToString();
+                    vendas.Preco = Convert.ToInt32(row.Cells["Preco"].Value);
+                    int quantidade = Convert.ToInt32(row.Cells["Quantidade"].Value);
+                    vendaDAO.FinalizarVenda(vendas, quantidade);
+                }
+            }
         }
     }
 }

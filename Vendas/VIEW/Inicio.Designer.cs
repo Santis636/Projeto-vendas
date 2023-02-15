@@ -41,8 +41,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Dg_ListadeVendas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Lb_Total = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dg_ListadeVendas)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btn_Remover
@@ -50,7 +56,7 @@
             this.Btn_Remover.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_Remover.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Remover.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Remover.Location = new System.Drawing.Point(749, 657);
+            this.Btn_Remover.Location = new System.Drawing.Point(749, 682);
             this.Btn_Remover.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Remover.Name = "Btn_Remover";
             this.Btn_Remover.Size = new System.Drawing.Size(114, 47);
@@ -63,13 +69,14 @@
             this.Btn_Finalizar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_Finalizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Finalizar.Location = new System.Drawing.Point(966, 657);
+            this.Btn_Finalizar.Location = new System.Drawing.Point(966, 682);
             this.Btn_Finalizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Finalizar.Name = "Btn_Finalizar";
             this.Btn_Finalizar.Size = new System.Drawing.Size(118, 47);
             this.Btn_Finalizar.TabIndex = 18;
             this.Btn_Finalizar.Text = "Finalizar";
             this.Btn_Finalizar.UseVisualStyleBackColor = true;
+            this.Btn_Finalizar.Click += new System.EventHandler(this.Btn_Finalizar_Click);
             // 
             // Btn_Adicionar
             // 
@@ -174,7 +181,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.Dg_ListadeVendas);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.Btn_Adicionar);
             this.panel1.Controls.Add(this.Cb_Nome);
             this.panel1.Controls.Add(this.label3);
@@ -185,6 +192,7 @@
             this.panel1.Controls.Add(this.Btn_Finalizar);
             this.panel1.Controls.Add(this.Btn_Remover);
             this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -195,11 +203,11 @@
             // Dg_ListadeVendas
             // 
             this.Dg_ListadeVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dg_ListadeVendas.Location = new System.Drawing.Point(627, 92);
+            this.Dg_ListadeVendas.Location = new System.Drawing.Point(27, 21);
             this.Dg_ListadeVendas.Name = "Dg_ListadeVendas";
             this.Dg_ListadeVendas.RowHeadersWidth = 51;
             this.Dg_ListadeVendas.RowTemplate.Height = 24;
-            this.Dg_ListadeVendas.Size = new System.Drawing.Size(541, 555);
+            this.Dg_ListadeVendas.Size = new System.Drawing.Size(460, 541);
             this.Dg_ListadeVendas.TabIndex = 24;
             // 
             // groupBox1
@@ -211,6 +219,46 @@
             this.groupBox1.Size = new System.Drawing.Size(301, 480);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(668, 614);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 39);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Total:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.Dg_ListadeVendas);
+            this.groupBox2.Location = new System.Drawing.Point(660, 27);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(511, 634);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Lb_Total);
+            this.groupBox3.Location = new System.Drawing.Point(0, 578);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(511, 56);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            // 
+            // Lb_Total
+            // 
+            this.Lb_Total.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Lb_Total.AutoSize = true;
+            this.Lb_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lb_Total.Location = new System.Drawing.Point(122, 12);
+            this.Lb_Total.Name = "Lb_Total";
+            this.Lb_Total.Size = new System.Drawing.Size(0, 36);
+            this.Lb_Total.TabIndex = 0;
             // 
             // Inicio
             // 
@@ -227,6 +275,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dg_ListadeVendas)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +298,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView Dg_ListadeVendas;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label Lb_Total;
     }
 }
