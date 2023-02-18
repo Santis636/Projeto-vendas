@@ -39,16 +39,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Cb_Nome = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Dg_ListadeVendas = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Lb_Total = new System.Windows.Forms.Label();
+            this.Dg_ListadeVendas = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dg_ListadeVendas)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg_ListadeVendas)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Remover
@@ -200,26 +200,6 @@
             this.panel1.Size = new System.Drawing.Size(1214, 770);
             this.panel1.TabIndex = 23;
             // 
-            // Dg_ListadeVendas
-            // 
-            this.Dg_ListadeVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dg_ListadeVendas.Location = new System.Drawing.Point(27, 21);
-            this.Dg_ListadeVendas.Name = "Dg_ListadeVendas";
-            this.Dg_ListadeVendas.RowHeadersWidth = 51;
-            this.Dg_ListadeVendas.RowTemplate.Height = 24;
-            this.Dg_ListadeVendas.Size = new System.Drawing.Size(460, 541);
-            this.Dg_ListadeVendas.TabIndex = 24;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupBox1.Location = new System.Drawing.Point(110, 93);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 480);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -231,8 +211,19 @@
             this.label5.TabIndex = 25;
             this.label5.Text = "Total:";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.groupBox1.Location = new System.Drawing.Point(110, 93);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(301, 480);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.Dg_ListadeVendas);
             this.groupBox2.Location = new System.Drawing.Point(660, 27);
@@ -260,6 +251,16 @@
             this.Lb_Total.Size = new System.Drawing.Size(0, 36);
             this.Lb_Total.TabIndex = 0;
             // 
+            // Dg_ListadeVendas
+            // 
+            this.Dg_ListadeVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dg_ListadeVendas.Location = new System.Drawing.Point(27, 21);
+            this.Dg_ListadeVendas.Name = "Dg_ListadeVendas";
+            this.Dg_ListadeVendas.RowHeadersWidth = 51;
+            this.Dg_ListadeVendas.RowTemplate.Height = 24;
+            this.Dg_ListadeVendas.Size = new System.Drawing.Size(460, 541);
+            this.Dg_ListadeVendas.TabIndex = 24;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -274,10 +275,10 @@
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dg_ListadeVendas)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg_ListadeVendas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

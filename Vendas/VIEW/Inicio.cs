@@ -25,70 +25,31 @@ namespace Vendas.VIEW
                 entityVendas.Nome_Produto = Cb_Nome.Text;
                 entityVendas.Preco = Convert.ToInt32(Tb_Preco.Text);
                 int quantidadeDoItem;
-                
-                
-                    if (Tb_Quantidade.Text != "")
+
+
+                if (Tb_Quantidade.Text != "")
+                {
+                    quantidadeDoItem = Convert.ToInt32(Tb_Quantidade.Text);
+
+                    if (quantidadeDoItem >= 1)
                     {
-                        quantidadeDoItem = Convert.ToInt32(Tb_Quantidade.Text);
-
-                        if (quantidadeDoItem >= 1)
-                        {
-                            bool itemExisteNaLista = false;
-                            int indexDaLinha = -1;
-
-                            for (int i = 0; i < Dg_ListadeVendas.Rows.Count; i++)
-                            {
-                                if (Dg_ListadeVendas.Rows[i].Cells["Nome_Produto"].Value != null &&
-                                    Dg_ListadeVendas.Rows[i].Cells["Nome_Produto"].Value.ToString() == entityVendas.Nome_Produto)
-                                {
-                                    itemExisteNaLista = true;
-                                    indexDaLinha = i;
-                                    break;
-                                }
-                            }
-
-                            if (!itemExisteNaLista)
-                            {
-                                var vendas = vendaDAO.vendaDiarias(entityVendas, quantidadeDoItem);
-
-                                try
-                                {
-                                    //colocar var vendas aqui
-                                    foreach (var venda in vendas)
-                                    {
-                                        Dg_ListadeVendas.Rows.Add(venda.Nome_Produto, venda.Preco, quantidadeDoItem);
-                                    }
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show("Ocorreu um erro ao adicionar o item: " + ex.Message);
-                                }
-                            }
-                            else
-                            {
-                                int quantidadeAtual = Convert.ToInt32(Dg_ListadeVendas.Rows[indexDaLinha].Cells["Quantidade"].Value);
-                                quantidadeAtual += quantidadeDoItem;
-                                Dg_ListadeVendas.Rows[indexDaLinha].Cells["Quantidade"].Value = quantidadeAtual;
-                            }
-
-                        }
-                    }
-                    else
-                    {
-                        quantidadeDoItem = 1;
                         bool itemExisteNaLista = false;
-                        foreach (DataGridViewRow row in Dg_ListadeVendas.Rows)
+                        int indexDaLinha = -1;
+
+                        for (int i = 0; i < Dg_ListadeVendas.Rows.Count; i++)
                         {
-                            if (row.Cells["Nome_Produto"].Value != null && row.Cells["Nome_Produto"].Value.ToString() == entityVendas.Nome_Produto)
+                            if (Dg_ListadeVendas.Rows[i].Cells["Nome_Produto"].Value != null &&
+                                Dg_ListadeVendas.Rows[i].Cells["Nome_Produto"].Value.ToString() == entityVendas.Nome_Produto)
                             {
                                 itemExisteNaLista = true;
-                                MessageBox.Show("Por favor utilize uma quantidade valida");
+                                indexDaLinha = i;
                                 break;
                             }
                         }
 
                         if (!itemExisteNaLista)
                         {
+
                             try
                             {
                                 var vendas = vendaDAO.vendaDiarias(entityVendas, quantidadeDoItem);
@@ -103,9 +64,48 @@ namespace Vendas.VIEW
                                 MessageBox.Show("Ocorreu um erro ao adicionar o item: " + ex.Message);
                             }
                         }
+                        else
+                        {
+                            int quantidadeAtual = Convert.ToInt32(Dg_ListadeVendas.Rows[indexDaLinha].Cells["Quantidade"].Value);
+                            quantidadeAtual += quantidadeDoItem;
+                            Dg_ListadeVendas.Rows[indexDaLinha].Cells["Quantidade"].Value = quantidadeAtual;
+                        }
+
                     }
-                
-                
+                }
+                else
+                {
+                    quantidadeDoItem = 1;
+                    bool itemExisteNaLista = false;
+                    foreach (DataGridViewRow row in Dg_ListadeVendas.Rows)
+                    {
+                        if (row.Cells["Nome_Produto"].Value != null && row.Cells["Nome_Produto"].Value.ToString() == entityVendas.Nome_Produto)
+                        {
+                            itemExisteNaLista = true;
+                            MessageBox.Show("Por favor utilize uma quantidade valida");
+                            break;
+                        }
+                    }
+
+                    if (!itemExisteNaLista)
+                    {
+                        try
+                        {
+                            var vendas = vendaDAO.vendaDiarias(entityVendas, quantidadeDoItem);
+
+                            foreach (var venda in vendas)
+                            {
+                                Dg_ListadeVendas.Rows.Add(venda.Nome_Produto, venda.Preco, quantidadeDoItem);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Ocorreu um erro ao adicionar o item: " + ex.Message);
+                        }
+                    }
+                }
+
+
             }
             else
             {
@@ -115,14 +115,7 @@ namespace Vendas.VIEW
 
             Tb_Preco.Clear();
             Tb_Quantidade.Clear();
-            int sum = 0;
-            foreach (DataGridViewRow row in Dg_ListadeVendas.Rows)
-            {
-                int value = Convert.ToInt32(row.Cells["Preco"].Value);
-                int quantidade = Convert.ToInt32(row.Cells["Quantidade"].Value);
-                sum += value * quantidade;
-            }
-            Lb_Total.Text = (sum / 100.0).ToString("C");
+            atualizarpreco();
         }
 
 
@@ -163,6 +156,17 @@ namespace Vendas.VIEW
                     vendaDAO.FinalizarVenda(vendas, quantidade);
                 }
             }
+        }
+        private void atualizarpreco()
+        {
+            int sum = 0;
+            foreach (DataGridViewRow row in Dg_ListadeVendas.Rows)
+            {
+                int value = Convert.ToInt32(row.Cells["Preco"].Value);
+                int quantidade = Convert.ToInt32(row.Cells["Quantidade"].Value);
+                sum += value * quantidade;
+            }
+            Lb_Total.Text = (sum / 100.0).ToString("C");
         }
     }
 }
